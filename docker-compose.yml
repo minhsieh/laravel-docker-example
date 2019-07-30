@@ -26,7 +26,7 @@ services:
   db:
     image: mysql:5.7
     volumes:
-      - ${DATA_PATH_HOST}/mysql:/var/lib/mysql:cached
+      - ~/.docker/${APP_NAME}/data/mysql:/var/lib/mysql:cached
     environment:
       - MYSQL_USER=${DB_USERNAME}
       - MYSQL_PASSWORD=${DB_PASSWORD}
@@ -38,7 +38,7 @@ services:
   redis:
     build: ./docker/redis
     volumes:
-      - ${DATA_PATH_HOST}/redis:/data:cached
+      - ~/.docker/${APP_NAME}/data/redis:/data:cached
     ports:
       - "16379:6379"
 
